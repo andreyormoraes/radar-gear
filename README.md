@@ -23,12 +23,12 @@ Use o `git status --short` para conferir o que vai entrar antes do commit. A có
 Precisa do Node.js 22 ou mais recente. O código usa APIs nativas do Worker e do navegador, e os scripts de desenvolvimento e deploy chamam o Wrangler 4.
 
 1. Rode `npm run check` para compilar o Worker em `dist/server/index.js`.
-2. Para hospedar no Cloudflare Workers, copie `wrangler.example.toml` para `wrangler.toml`. Crie um D1 só para o projeto, coloque o ID dele no arquivo e mantenha o binding com o nome `DB`. Aponte o Worker para um hostname da sua conta protegido pelo Cloudflare Access. O modelo já vem com os endereços públicos de desenvolvimento e preview desativados.
-3. Crie uma aplicação no Cloudflare Access e defina a política de acesso dos usuários. Preencha o domínio da equipe e o identificador de audiência em `wrangler.toml`. O backend verifica a assinatura e os dados do JWT antes de aceitar a identidade. Fora do ChatGPT, use o modo `cloudflare-access`.
-4. Configure `RADAR_OWNER_EMAIL` como segredo do Worker, e também `RADAR_JOB_TOKEN` se o serviço de pesquisa for externo. Dá para fazer pelo painel ou com `npx wrangler@4 secret put NOME_DA_VARIAVEL`. Gere um valor aleatório diferente para cada ambiente. Em desenvolvimento, use um `.dev.vars` com valores próprios (o Git ignora esse arquivo). Para fazer login, você precisa de uma credencial de teste válida ou de uma implantação de homologação protegida.
+2. Para hospedar no Cloudflare Workers, copie `wrangler.example.toml` para `wrangler.toml`. Crie um D1 só para o projeto, coloque o ID dele no arquivo e mantenha o binding com o nome `DB`. O modelo publica no endereço `workers.dev` da sua conta, com os previews desativados.
+3. O login é do próprio site, com e-mail e senha. As senhas ficam no D1 com hash PBKDF2 e salt, as sessões duram 30 dias em cookie `HttpOnly`, e cinco senhas erradas bloqueiam o e-mail por 15 minutos. Quem não entra usa o Radar como visitante, só para leitura. Não há envio de e-mail: se alguém esquecer a senha, um administrador gera uma senha temporária em **Contas**.
+4. Configure `RADAR_OWNER_EMAIL` como segredo do Worker (um ou mais e-mails de administrador, separados por vírgula), e também `RADAR_JOB_TOKEN` se o serviço de pesquisa for externo. Dá para fazer pelo painel ou com `npx wrangler@4 secret put NOME_DA_VARIAVEL`. Gere um valor aleatório diferente para cada ambiente. Em desenvolvimento, use um `.dev.vars` com valores próprios (o Git ignora esse arquivo).
 5. Aplique as migrações com `npx wrangler@4 d1 migrations apply radar-gear --remote`, trocando `radar-gear` pelo nome do banco que você configurou. Quando estiver pronto, publique com `npm run deploy`. Antes de ligar o domínio de produção, teste em homologação uma conta administradora, uma conta comum e requisições sem autenticação.
 
-[Cloudflare Access e validação do JWT](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/validating-json/) · [Segredos do Worker](https://developers.cloudflare.com/workers/configuration/secrets/) · [Migrações D1](https://developers.cloudflare.com/d1/reference/migrations/)
+[Segredos do Worker](https://developers.cloudflare.com/workers/configuration/secrets/) · [Migrações D1](https://developers.cloudflare.com/d1/reference/migrations/)
 
 ## O que migra e o que precisa ser conectado
 
@@ -36,7 +36,7 @@ Precisa do Node.js 22 ou mais recente. O código usa APIs nativas do Worker e do
 | --- | --- |
 | Interface, backend, painel privado e destaques | Vão inteiros no código. Alterações, perfis, decisões, busca de produto por link, gráficos, filtros e cupons continuam no código. |
 | Banco de dados e histórico | O código traz as migrações de esquema e uma amostra de observações públicas. O banco hospedado, o histórico real, os cadastros e as preferências precisam ser migrados à parte. |
-| Login e contas | Tem um adaptador para o Cloudflare Access. Configure o provedor e as políticas de acesso. Os usuários recebem identificadores novos no provedor externo. |
+| Login e contas | Cadastro e login com e-mail e senha no próprio site, sem provedor externo. Os usuários recebem identificadores novos ao se cadastrar. |
 | Lojas e importação de links | Tem um adaptador HTTP para os varejistas compatíveis. A leitura depende das páginas, dos metadados e das regras de acesso de cada loja. Para cobrir o mercado todo, é preciso o serviço de pesquisa. |
 | Monitoramento, estoque e cupons | As APIs de leitura e gravação estão incluídas. A consulta ampla do Radar original roda numa automação fora do código, que precisa ser trocada por um job de pesquisa. |
 | Alertas e agendamento | O aplicativo guarda o histórico das consultas e das mudanças de preço. Alertas de conversa, frequência da pesquisa e regras de notificação ficam no serviço agendado. Configure o canal e a frequência no ambiente externo. No Radar original, a pesquisa roda a cada duas horas. |
@@ -49,8 +49,6 @@ Ao migrar ofertas, histórico e destaques, mantenha as chaves de produto. Troque
 
 ### Reconectar pesquisa e alertas
 
-Mantenha `/mcp` protegido. Crie uma política de acesso de serviço só para esse caminho e um token de serviço do Cloudflare Access. O job manda ao Worker os cabeçalhos de serviço do Access e `Authorization: Bearer <RADAR_JOB_TOKEN>`. Quando configurado, o token do job autentica só o protocolo MCP, e a leitura técnica do job não inclui o perfil nem as decisões do usuário. Use o host HTTPS protegido e guarde as credenciais no ambiente do agendador.
+O job manda ao Worker `Authorization: Bearer <RADAR_JOB_TOKEN>` no caminho `/mcp`. Quando configurado, o token do job autentica só o protocolo MCP, e a leitura técnica do job não inclui o perfil nem as decisões do usuário. Guarde o token no ambiente do agendador.
 
 O job precisa ler os SKUs ativos com `ler_radar` e gravar o resultado com `registrar_consulta`. No meio disso, ele pesquisa e valida as URLs diretas, o modelo, o estoque e os preços. Quando houver evidência suficiente, use `identificar_produto`. Observações antigas devem ser gravadas com a data original. Separe cupom geral de benefício que depende de cartão, assinatura ou conta. Registre as falhas de cobertura e só mande alertas nas condições que você configurar. O importador do cadastro consulta o link informado. Para buscar em várias lojas logo depois de cada cadastro, também é preciso integrar um serviço de pesquisa.
-
-O modo `chatgpt-sites` é só para um ambiente em que a infraestrutura do Sites cuida da autenticação e dos cabeçalhos de identidade. Numa origem externa, use `cloudflare-access`.

@@ -249,9 +249,11 @@ export default {async fetch(request,env){
  const url=new URL(request.url),method=request.method;
  try{
   if(url.pathname==='/mcp'&&method==='POST')return await mcp(request,env);
-  if(url.pathname==='/entrar')return Response.redirect(url.origin+'/',302);
-  const viewer=await account(request,env)??(method==='GET'?{id:'!visitante',owner:false}:null);
-  if(!viewer)return json({error:'Entre com sua conta (link Entrar, no topo) para salvar alterações.'},401);
+  let viewer=await account(request,env);
+  if(url.pathname.startsWith('/api/auth/')||url.pathname.startsWith('/api/admin/')){const response=await authRoute(request,env,url,viewer);if(response)return response;}
+  viewer??=method==='GET'?{id:'!visitante',owner:false}:null;
+  if(!viewer)return json({error:'Entre com sua conta (botão Entrar, no topo) para salvar alterações.'},401);
+  if(viewer.mustChange&&method!=='GET')return json({error:'Troque sua senha temporária antes de continuar.'},403);
   if(url.pathname==='/'&&method==='GET')return new Response(HTML,{headers:{'content-type':'text/html; charset=utf-8','cache-control':'no-store'}});
   if(url.pathname==='/api/radar'&&method==='GET')return json(await read(env.DB,viewer));
   if(url.pathname==='/api/featured'&&method==='POST'){
