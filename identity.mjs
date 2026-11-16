@@ -9,7 +9,8 @@ function decodeJwtPart(part) {
 async function accessIdentity(request, env) {
  const team = env.RADAR_ACCESS_TEAM_DOMAIN;
  const audience = env.RADAR_ACCESS_AUD;
- const token = request.headers.get('Cf-Access-Jwt-Assertion');
+ // o Access só protege /entrar; nas outras rotas a identidade chega pelo cookie CF_Authorization
+ const token = request.headers.get('Cf-Access-Jwt-Assertion') || request.headers.get('Cookie')?.match(/(?:^|;\s*)CF_Authorization=([^;]+)/)?.[1];
  if (!team || !audience || !token || token.length > 16384 || !/^[a-z0-9-]+\.cloudflareaccess\.com$/.test(team)) return null;
  try {
   const parts = token.split('.');

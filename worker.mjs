@@ -249,8 +249,9 @@ export default {async fetch(request,env){
  const url=new URL(request.url),method=request.method;
  try{
   if(url.pathname==='/mcp'&&method==='POST')return await mcp(request,env);
-  const viewer=await account(request,env);
-  if(!viewer)return json({error:'Entre com sua conta para acessar o Radar.'},401);
+  if(url.pathname==='/entrar')return Response.redirect(url.origin+'/',302);
+  const viewer=await account(request,env)??(method==='GET'?{id:'!visitante',owner:false}:null);
+  if(!viewer)return json({error:'Entre com sua conta (link Entrar, no topo) para salvar alterações.'},401);
   if(url.pathname==='/'&&method==='GET')return new Response(HTML,{headers:{'content-type':'text/html; charset=utf-8','cache-control':'no-store'}});
   if(url.pathname==='/api/radar'&&method==='GET')return json(await read(env.DB,viewer));
   if(url.pathname==='/api/featured'&&method==='POST'){
