@@ -1,0 +1,14 @@
+name = "radar-gear"
+main = "dist/server/index.js"
+compatibility_date = "2026-05-01"
+workers_dev = true
+preview_urls = false
+
+[[d1_databases]]
+binding = "DB"
+database_name = "radar-gear"
+database_id = "466e7495-cb74-463a-a420-efd20e283855"
+migrations_dir = "drizzle"
+
+[observability]
+enabled = true
