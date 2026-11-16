@@ -1,0 +1,419 @@
+{
+  "offers": [
+    {
+      "id": "seed-0",
+      "product": "webcam",
+      "store": "Pichau",
+      "price": 599.99,
+      "date": "2026-11-13",
+      "url": "https://www.pichau.com.br/webcam-logitech-c922-pro-stream-960-001087",
+      "advertised": 741.16,
+      "installments": "12× de R$ 58,82 sem juros",
+      "card": 705.87
+    },
+    {
+      "id": "seed-1",
+      "product": "webcam",
+      "store": "KaBuM!",
+      "price": 599.99,
+      "date": "2026-11-15",
+      "url": "https://www.promodetec.com.br/produto/d745d009-f669-429c-91f3-dc4821f26b98",
+      "seller": "Preço coletado pelo PromoDetec"
+    },
+    {
+      "id": "seed-2",
+      "product": "headset",
+      "store": "Magalu",
+      "price": 1178.99,
+      "date": "2026-11-13",
+      "url": "https://www.magazineluiza.com.br/headset-gamer-sem-fio-logitech-g-pro-x-2-lightspeed-driver-50mm-bluetooth-usb-e-3-5mm-para-pc-playstation-e-switch-preto-981-001262/p/kebg4ff2f3/ea/achd/",
+      "seller": "Vendido e entregue por KaBuM!",
+      "advertised": 2117.64,
+      "installments": "10× de R$ 138,71 sem juros",
+      "card": 1387.05
+    },
+    {
+      "id": "seed-3",
+      "product": "headset",
+      "store": "KaBuM!",
+      "price": 1178.99,
+      "date": "2026-11-15",
+      "url": "https://www.kabum.com.br/promocao/LOGITECHPRO",
+      "seller": "Preço anunciado na campanha",
+      "advertised": 2117.64,
+      "installments": "10× de R$ 138,70"
+    },
+    {
+      "id": "seed-4",
+      "product": "headset",
+      "store": "KaBuM!",
+      "price": 1399.99,
+      "date": "2026-10-15",
+      "url": "https://farejapreco.com.br/p/awin-17729-41633679903/headset-gamer-sem-fio-logitech-g-pro-x-2-lightspeed-driver-50mm-bluetooth-usb-e-",
+      "historical": true
+    },
+    {
+      "id": "seed-5",
+      "product": "headset",
+      "store": "KaBuM!",
+      "price": 1399.99,
+      "date": "2026-10-16",
+      "url": "https://farejapreco.com.br/p/awin-17729-41633679903/headset-gamer-sem-fio-logitech-g-pro-x-2-lightspeed-driver-50mm-bluetooth-usb-e-",
+      "historical": true
+    },
+    {
+      "id": "seed-6",
+      "product": "headset",
+      "store": "KaBuM!",
+      "price": 1399.99,
+      "date": "2026-10-17",
+      "url": "https://farejapreco.com.br/p/awin-17729-41633679903/headset-gamer-sem-fio-logitech-g-pro-x-2-lightspeed-driver-50mm-bluetooth-usb-e-",
+      "historical": true
+    },
+    {
+      "id": "seed-7",
+      "product": "headset",
+      "store": "KaBuM!",
+      "price": 1399.99,
+      "date": "2026-10-18",
+      "url": "https://farejapreco.com.br/p/awin-17729-41633679903/headset-gamer-sem-fio-logitech-g-pro-x-2-lightspeed-driver-50mm-bluetooth-usb-e-",
+      "historical": true
+    },
+    {
+      "id": "seed-8",
+      "product": "headset",
+      "store": "KaBuM!",
+      "price": 1399.99,
+      "date": "2026-10-19",
+      "url": "https://farejapreco.com.br/p/awin-17729-41633679903/headset-gamer-sem-fio-logitech-g-pro-x-2-lightspeed-driver-50mm-bluetooth-usb-e-",
+      "historical": true
+    },
+    {
+      "id": "seed-9",
+      "product": "headset",
+      "store": "KaBuM!",
+      "price": 1399.99,
+      "date": "2026-10-20",
+      "url": "https://farejapreco.com.br/p/awin-17729-41633679903/headset-gamer-sem-fio-logitech-g-pro-x-2-lightspeed-driver-50mm-bluetooth-usb-e-",
+      "historical": true
+    },
+    {
+      "id": "seed-10",
+      "product": "headset",
+      "store": "KaBuM!",
+      "price": 1399.99,
+      "date": "2026-10-21",
+      "url": "https://farejapreco.com.br/p/awin-17729-41633679903/headset-gamer-sem-fio-logitech-g-pro-x-2-lightspeed-driver-50mm-bluetooth-usb-e-",
+      "historical": true
+    },
+    {
+      "id": "seed-11",
+      "product": "headset",
+      "store": "KaBuM!",
+      "price": 1399.99,
+      "date": "2026-10-22",
+      "url": "https://farejapreco.com.br/p/awin-17729-41633679903/headset-gamer-sem-fio-logitech-g-pro-x-2-lightspeed-driver-50mm-bluetooth-usb-e-",
+      "historical": true
+    },
+    {
+      "id": "seed-12",
+      "product": "headset",
+      "store": "KaBuM!",
+      "price": 1399.99,
+      "date": "2026-10-24",
+      "url": "https://farejapreco.com.br/p/awin-17729-41633679903/headset-gamer-sem-fio-logitech-g-pro-x-2-lightspeed-driver-50mm-bluetooth-usb-e-",
+      "historical": true
+    },
+    {
+      "id": "seed-13",
+      "product": "headset",
+      "store": "KaBuM!",
+      "price": 1399.99,
+      "date": "2026-10-25",
+      "url": "https://farejapreco.com.br/p/awin-17729-41633679903/headset-gamer-sem-fio-logitech-g-pro-x-2-lightspeed-driver-50mm-bluetooth-usb-e-",
+      "historical": true
+    },
+    {
+      "id": "seed-14",
+      "product": "headset",
+      "store": "KaBuM!",
+      "price": 1399.99,
+      "date": "2026-10-29",
+      "url": "https://farejapreco.com.br/p/awin-17729-41633679903/headset-gamer-sem-fio-logitech-g-pro-x-2-lightspeed-driver-50mm-bluetooth-usb-e-",
+      "historical": true
+    },
+    {
+      "id": "seed-15",
+      "product": "headset",
+      "store": "KaBuM!",
+      "price": 1178.99,
+      "date": "2026-11-05",
+      "url": "https://farejapreco.com.br/p/awin-17729-41633679903/headset-gamer-sem-fio-logitech-g-pro-x-2-lightspeed-driver-50mm-bluetooth-usb-e-",
+      "historical": true
+    },
+    {
+      "id": "seed-16",
+      "product": "headset",
+      "store": "KaBuM!",
+      "price": 1178.99,
+      "date": "2026-11-11",
+      "url": "https://farejapreco.com.br/p/awin-17729-41633679903/headset-gamer-sem-fio-logitech-g-pro-x-2-lightspeed-driver-50mm-bluetooth-usb-e-",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-Miranda-2026-11-16",
+      "product": "c920s",
+      "store": "Miranda",
+      "price": 379.05,
+      "date": "2026-11-16",
+      "url": "https://www.miranda.com.br/acessorios-informatica/acessorios/webcam",
+      "advertised": 499,
+      "card": 399,
+      "installments": "10× de R$ 39,90 sem juros"
+    },
+    {
+      "id": "seed-c920s-Pichau-2026-11-16",
+      "product": "c920s",
+      "store": "Pichau",
+      "price": 499.99,
+      "date": "2026-11-16",
+      "url": "https://www.pichau.com.br/webcam-logitech-c920s-pro-1080p-30fps-960-001257",
+      "card": 588.22,
+      "installments": "12× de R$ 49,02 sem juros"
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-15",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 419.99,
+      "date": "2026-10-15",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-16",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 419.99,
+      "date": "2026-10-16",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-17",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 419.99,
+      "date": "2026-10-17",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-18",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 419.99,
+      "date": "2026-10-18",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-19",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 419.99,
+      "date": "2026-10-19",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-20",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 419.99,
+      "date": "2026-10-20",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-21",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 419.99,
+      "date": "2026-10-21",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-22",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 419.99,
+      "date": "2026-10-22",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-23",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 419.99,
+      "date": "2026-10-23",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-24",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 419.99,
+      "date": "2026-10-24",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-25",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 419.99,
+      "date": "2026-10-25",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-26",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 419.99,
+      "date": "2026-10-26",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-27",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 419.99,
+      "date": "2026-10-27",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-28",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 419.99,
+      "date": "2026-10-28",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-29",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 419.99,
+      "date": "2026-10-29",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-30",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 359.99,
+      "date": "2026-10-30",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-10-31",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 359.99,
+      "date": "2026-10-31",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-11-01",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 359.99,
+      "date": "2026-11-01",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-11-02",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 359.99,
+      "date": "2026-11-02",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-11-03",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 359.99,
+      "date": "2026-11-03",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-11-05",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 359.99,
+      "date": "2026-11-05",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-11-06",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 359.99,
+      "date": "2026-11-06",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-c920s-KaBuM!-2026-11-07",
+      "product": "c920s",
+      "store": "KaBuM!",
+      "price": 359.99,
+      "date": "2026-11-07",
+      "url": "https://farejapreco.com.br/p/awin-17729-27720949271/webcam-full-hd-logitech-c920s-com-microfone-embutido-protecao-de-privacidade-wid",
+      "historical": true
+    },
+    {
+      "id": "seed-superlight-2026-11-05",
+      "product": "superlight2",
+      "store": "KaBuM!",
+      "price": 799.99,
+      "date": "2026-11-05",
+      "url": "https://buscabarato.com/p/mouse-gamer-sem-fio-logitech-g-pro-x-superlight-2-com-lights-0c2376",
+      "historical": true
+    },
+    {
+      "id": "seed-superlight-2026-11-10",
+      "product": "superlight2",
+      "store": "KaBuM!",
+      "price": 599.99,
+      "date": "2026-11-10",
+      "url": "https://buscabarato.com/p/mouse-gamer-sem-fio-logitech-g-pro-x-superlight-2-com-lights-0c2376",
+      "historical": true
+    },
+    {
+      "id": "seed-superlight-2026-11-13",
+      "product": "superlight2",
+      "store": "KaBuM!",
+      "price": 719.99,
+      "date": "2026-11-13",
+      "url": "https://buscabarato.com/p/mouse-gamer-sem-fio-logitech-g-pro-x-superlight-2-com-lights-0c2376",
+      "historical": false
+    }
+  ]
+}

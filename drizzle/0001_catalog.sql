@@ -1,0 +1,1 @@
+CREATE TABLE catalog (id TEXT PRIMARY KEY, data TEXT NOT NULL);

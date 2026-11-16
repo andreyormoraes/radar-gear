@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#151321"><title>Radar de Periféricos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1827;--muted:#625e74;--line:#e5e2ee;--bg:#f5f4fa;--purple:#6638c2;--lime:#d9fd8c;--white:#fff}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px Geist,Arial,sans-serif}button,input,select,textarea{font:inherit}button,a{touch-action:manipulation}a{color:var(--purple)}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #9e77fe;outline-offset:3px}.top{background:#151321;color:white}.shell{width:min(1200px,calc(100% - 64px));margin:auto}.bar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff24;gap:16px}.brand{display:flex;align-items:center;gap:11px;font-weight:700}.mark{background:var(--lime);color:#242233;border-radius:11px;width:34px;height:34px;display:grid;place-items:center;font-size:22px;font-weight:700}.bar nav{display:flex;gap:24px}.bar a{color:#e7e2f4;text-decoration:none;font-size:13px}.hero{padding:42px 0 70px;display:flex;align-items:end;justify-content:space-between;gap:20px;background:radial-gradient(ellipse at 84% 110%,#4b3078 0%,transparent 64%)}h1,h2,h3,p{margin:0}h1{font-size:clamp(39px,6vw,70px);letter-spacing:-.075em;line-height:1.02}.hero p{color:#d8d1e7;margin-top:13px}.mono{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.05em}.hero .mono{color:var(--lime);margin-bottom:12px}.button{border:0;background:#231b36;color:white;border-radius:9px;padding:11px 15px;font-weight:600;white-space:nowrap}.button.lime{background:var(--lime);color:#211c2e}.button.soft{background:#f1ebfb;color:#50319a}.button:disabled{opacity:.55}.hero-actions{display:flex;gap:10px;align-items:center}.cep{border:1px solid #ffffff44;border-radius:9px;padding:10px 13px;color:#fff;font-size:13px;white-space:nowrap}.cards{margin-top:-32px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card,.panel{background:white;border:1px solid var(--line);border-radius:16px}.card{padding:20px;min-width:0}.product{display:flex;align-items:center;gap:19px;min-height:112px}.product img{width:clamp(64px,8vw,108px);height:106px;object-fit:contain;background:#fff}.product .mono{color:var(--purple)}h2{font-size:26px;letter-spacing:-.045em}h3{font-size:18px;letter-spacing:-.025em}.product h2{margin:5px 0}.muted,small{color:var(--muted)}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:17px 0 12px}.metric{background:#f6f3fc;padding:13px;border-radius:10px}.metric strong{display:block;font-size:clamp(18px,2.5vw,28px);letter-spacing:-.055em;margin:5px 0 2px}.metric small{display:block;font-size:11px}.foot{border-top:1px solid var(--line);margin-top:14px;padding-top:13px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}.chip{display:inline-block;border-radius:20px;background:#efeaf8;color:#513b76;padding:5px 9px;font-size:11px;font-weight:700}.good{background:#e6f7c7;color:#325112}.warn{background:#fff0d7;color:#774300}.analysis{font-size:13px;color:var(--muted);line-height:1.5}.layout{display:grid;grid-template-columns:minmax(0,1.62fr) minmax(0,1fr);gap:18px;margin-top:18px}.panel{padding:20px;margin-bottom:18px;min-width:0}.layout .panel{margin-bottom:0}.heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.heading p{font-size:13px;margin-top:4px}select,input,textarea{width:100%;background:white;border:1px solid #d8d2e4;color:var(--ink);padding:9px;border-radius:8px}.heading select{width:auto}canvas{display:block;width:100%;height:214px}.legend{font-size:12px;color:var(--muted);margin-top:8px}.legend:before{content:"";display:inline-block;background:#783be4;width:10px;height:10px;border-radius:50%;margin-right:6px}.list{list-style:none;margin:0;padding:0}.list li{padding:10px 0;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:baseline;justify-content:space-between}.list li:last-child{border:0}.list small{display:block;margin-top:4px}.list a{text-decoration:none;color:inherit}.list a:hover{text-decoration:underline}.list time{white-space:nowrap;font-size:11px;color:var(--muted)}.offers{margin-top:18px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;text-align:left;white-space:nowrap}th,td{padding:10px 12px;border-bottom:1px solid var(--line)}th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}td small{display:block;margin-top:5px}tr:last-child td{border:0}.lower{margin-top:18px}.explain{line-height:1.6;color:var(--muted);font-size:13px}.explain summary{color:var(--ink);cursor:pointer;font-weight:700}.empty{padding:16px 0;color:var(--muted)}footer{padding:4px 0 22px;color:var(--muted);font-size:12px}dialog{border:1px solid var(--line);border-radius:17px;width:min(95vw,520px);padding:23px;max-height:90vh}dialog::backdrop{background:#1a1229aa}form{display:grid;gap:11px}label{display:grid;gap:5px;font-weight:600;font-size:13px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions{display:flex;justify-content:flex-end;gap:8px}.toast{position:fixed;bottom:16px;right:16px;max-width:calc(100% - 32px);background:#1d172a;color:white;padding:13px 17px;border-radius:9px;z-index:2}.toast:empty{display:none}[id]{scroll-margin-top:16px}@media(max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:760px){.shell{width:calc(100% - 28px)}.hero{padding:30px 0 61px;align-items:start;flex-direction:column}.cards,.layout{grid-template-columns:1fr}.bar nav{gap:10px}.product img{width:100px}.heading{flex-wrap:wrap}}@media(max-width:370px){.bar nav a:first-child{display:none}}
+.hero-actions{flex-wrap:wrap}.product-placeholder{display:grid;place-items:center;flex:none;width:72px;height:72px;border-radius:12px;background:#f1ebfb;color:#51319a;font-size:23px;font-weight:700}.product>div:last-child{min-width:0;overflow-wrap:anywhere}.radar-tabs{position:relative;margin-top:-32px;display:flex;gap:8px;padding:12px}.radar-tabs button[aria-pressed="true"]{background:#231b36;color:#fff}#comparacao.cards{margin-top:0}.featured-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,235px),1fr));gap:12px}.featured-card{padding:16px;border:1px solid var(--line);border-radius:11px;display:grid;gap:8px;align-content:start}.featured-card strong{font-size:23px}.featured-card small{line-height:1.5}[hidden]{display:none!important}.card-tools{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px;margin-bottom:10px}.card-tools .button{padding:7px 9px;font-size:12px}.button.remove{background:#fff0ef;color:#8d2828}.product img{height:85px;object-fit:contain}.product-entry{cursor:pointer}.product-entry h2 a{color:inherit;text-decoration:none}.product-entry h2 a:hover{text-decoration:underline}.detail-header{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:14px}.detail-header h2{margin-top:8px;font-size:clamp(26px,4vw,38px)}.detail-metrics{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}.detail-metrics .metric.best{background:#e6f7c7}.winner-row td{background:#edf8dc}.detail-table td:first-child{font-weight:700}.detail-history{margin-top:12px}.detail-history summary{cursor:pointer;font-weight:600}.chart-keys{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;font-size:12px}.chart-keys .high{color:#806027}.chart-keys .low{color:#6435c7}#detailChart{height:260px}.product-entry .detail-link{display:inline-block;margin-top:7px;font-size:13px;font-weight:700}.bar #profileButton{max-width:180px;overflow:hidden;text-overflow:ellipsis}@media(max-width:650px){.bar nav{display:none}.bar{gap:8px}}</style></head><body>
+<header class="top"><div class="shell bar"><div class="brand"><span class="mark" aria-hidden="true">⌁</span> Radar de Periféricos</div><nav aria-label="Seções"><a href="#comparacao">Comparação</a><a href="#historico">Histórico</a><a href="#ofertas">Ofertas</a></nav><button type="button" class="button soft" id="profileButton">Meu perfil</button></div>
+<div class="hero"><div class="shell" style="display:contents"><div class="shell" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:end"><div><div class="mono">MONITOR DE PREÇOS</div><h1>Radar de Periféricos</h1><p>Compare ofertas, acompanhe as quedas e decida quando comprar.</p></div><div class="hero-actions"><button class="button soft" id="editCep">Definir CEP</button><button class="button lime" id="addProduct">+ Adicionar produto</button><button class="button soft" id="add">+ Registrar oferta</button></div></div></div></div></header>
+<main class="shell"><div class="panel radar-tabs" role="group" aria-label="Área do Radar"><button type="button" class="button soft" id="personalTab" aria-pressed="true">Meu painel</button><button type="button" class="button soft" id="featuredTab" aria-pressed="false">Melhores ofertas</button></div><section id="featuredView" class="panel" hidden><div class="heading"><div><h2>Melhores ofertas de periféricos</h2><p class="muted">Produtos selecionados pelo administrador. Preços registrados antes do frete.</p></div></div><div class="fields" style="margin-bottom:14px"><label>Marca<select id="featuredBrand"></select></label><label>Categoria<select id="featuredCategory"></select></label></div><div class="featured-grid" id="featuredCards"></div></section><section id="productView" hidden>
+<div class="panel"><button type="button" class="button soft" id="detailBack">← Voltar</button><div class="detail-header"><div><h2 id="detailName" tabindex="-1"></h2><p class="muted" id="detailMeta"></p></div><div><span class="mono" id="detailDate"></span> <button type="button" class="button soft" id="detailDeadline">Prazo de pesquisa</button></div></div><div class="metrics detail-metrics" id="detailMetrics"></div><div id="detailBuy"></div></div>
+<section class="panel"><div class="heading"><div><h2>Histórico de preços</h2><p class="muted">Menor preço registrado por loja em cada dia, sem frete</p></div></div><canvas id="detailChart" role="img" aria-label="Histórico de preços"></canvas><div class="chart-keys" id="detailKeys"></div><p class="muted" id="detailChartNote"></p><details class="detail-history" id="detailHistory"><summary>Ver registros e links por loja</summary><div class="table-wrap"><table><thead><tr><th>Data</th><th>Loja</th><th>Preço</th><th>Link</th></tr></thead><tbody id="detailHistoryRows"></tbody></table></div></details></section>
+<section class="panel"><div class="heading"><div><h2>Comparativo de lojas</h2><p class="muted" id="detailRankNote"></p></div></div><div class="table-wrap"><table class="detail-table"><thead><tr><th>Loja</th><th>À vista</th><th>Com cupom</th><th>Frete</th><th>Total com frete</th><th>Estoque e registro</th><th>Compra</th></tr></thead><tbody id="detailStoreRows"></tbody></table></div></section></section><div id="personalView"><section class="cards" id="comparacao" aria-label="Comparação lado a lado"></section>
+<details class="panel" id="archivedPanel" hidden style="margin-top:18px"><summary>Removidos do radar</summary><ul class="list" id="archivedList"></ul></details><div class="layout" id="historico"><section class="panel"><div class="heading"><div><h2>Histórico de preços</h2><p class="muted">Valores registrados sem frete</p></div><select id="chartProduct" aria-label="Produto do gráfico"><option value="headset">Headset</option><option value="webcam">Webcam C922</option><option value="c920s">Webcam C920s</option></select></div><canvas id="chart" role="img" aria-label="Gráfico do histórico de preços"></canvas><p class="legend" id="chartNote"></p></section>
+<section class="panel"><div class="heading"><div><h2>Atualizações</h2><p class="muted">Ofertas, consultas e decisões por data</p></div><select id="activityFilter" aria-label="Filtrar atualizações"><option value="all">Tudo</option><option value="webcam">Webcam C922</option><option value="c920s">Webcam C920s</option><option value="headset">Headset</option></select></div><ul class="list" id="activity"></ul><button id="more" class="button soft" style="margin-top:10px">Ver mais</button></section></div>
+<section class="panel offers" id="ofertas"><div class="heading"><div><h2>Ofertas por loja</h2><p class="muted">Preço, entrega para <span id="tableCep"></span> e custo no cartão</p></div><select id="offerFilter" aria-label="Filtrar ofertas"><option value="all">Todos os produtos</option><option value="webcam">Webcam C922</option><option value="c920s">Webcam C920s</option><option value="headset">Headset</option></select></div><div class="table-wrap"><table><thead><tr><th>Loja / fonte</th><th>Produto</th><th>À vista</th><th>Com cupom</th><th>Frete</th><th>Total entregue</th><th>Prazo</th><th>Parcelamento</th></tr></thead><tbody id="offerRows"></tbody></table></div></section>
+<section class="panel explain"><details><summary>Como o Radar avalia descontos?</summary><p style="margin-top:8px">O Radar compara o valor à vista da oferta com a mediana de pelo menos três dias anteriores, nos últimos 60 dias, para o mesmo produto. Uma queda de 5% ou mais sinaliza uma promoção real no preço anunciado. Se a loja anuncia desconto e o preço fica no patamar usual ou acima, o desconto pode ser ilusório. Com menos dados, a análise indica histórico insuficiente. Confira o total com frete e o custo do parcelamento antes de decidir.</p></details></section>
+<footer id="status" role="status"></footer></div></main>
+<dialog id="profileDialog"><form id="profileForm"><div class="heading"><h2>Meu perfil</h2><button type="button" class="button soft close" aria-label="Fechar">×</button></div><p class="muted">Seu painel é vinculado à sua conta de acesso.</p><label>Nome no Radar<input name="name" required maxlength="60" autocomplete="nickname"></label><label>CEP padrão<input name="cep" required inputmode="numeric" maxlength="9" autocomplete="postal-code" pattern="[0-9]{5}-?[0-9]{3}"></label><div class="actions"><button class="button">Salvar perfil</button></div></form></dialog>
+<dialog id="deadlineDialog"><form id="deadlineForm"><div class="heading"><h2>Prazo de pesquisa</h2><button type="button" class="button soft close" aria-label="Fechar">×</button></div><p id="deadlineProduct" class="muted"></p><input type="hidden" name="product"><label>Pesquisar até<input name="until" type="date"></label><p class="muted">A pesquisa inclui esse dia. Deixe a data em branco para pesquisar sem prazo. O histórico continua disponível após o encerramento.</p><div class="actions"><button class="button">Salvar prazo</button></div></form></dialog><dialog id="productDialog"><form id="productForm"><div class="heading"><h2>Adicionar periférico</h2><button type="button" class="button soft close" aria-label="Fechar">×</button></div><label>Nome do produto<input name="name" required maxlength="90" placeholder="Ex. Monitor ASUS TUF 260 Hz"></label><label>Link do produto na loja<input name="link" type="url" required maxlength="700" placeholder="https://…"></label><p class="muted">O Radar tenta identificar o modelo e trazer foto e preço da página da loja.</p><details id="productAdvanced"><summary>Preencher detalhes manualmente</summary><div class="fields"><label>Marca<input name="brand" maxlength="45"></label><label>Categoria<select name="category"><option value="">Selecione</option><option>Mouse</option><option>Teclado</option><option>Headset e fone</option><option>Webcam</option><option>Microfone</option><option>Mousepad</option><option>Monitor</option><option>Caixa de som</option><option>Controle</option><option>Outro periférico</option></select></label></div><label>Variante<input name="variant" maxlength="90" placeholder="Ex. ABNT2, switch vermelho"></label><label>Código do fabricante (SKU)<input name="sku" maxlength="50"></label></details><div class="actions"><button class="button">Adicionar ao Radar</button></div></form></dialog>
+<dialog id="photoDialog"><form id="photoForm"><div class="heading"><h2>Alterar foto do produto</h2><button type="button" class="button soft close" aria-label="Fechar">×</button></div><input type="hidden" name="product"><label>Endereço da imagem<input type="url" name="image" required maxlength="700" placeholder="https://…"></label><p class="muted">Na página do produto, clique com o botão direito sobre a foto e escolha Copiar endereço da imagem.</p><div class="actions"><button class="button">Salvar foto</button></div></form></dialog><dialog id="identifyDialog"><form id="identifyForm"><div class="heading"><h2>Informar código do fabricante</h2><button type="button" class="button soft close" aria-label="Fechar">×</button></div><input type="hidden" name="product"><label>Código exato da variante<input name="sku" required maxlength="50"></label><div class="actions"><button class="button">Salvar código</button></div></form></dialog><dialog id="cepDialog"><form id="cepForm"><div class="heading"><h2>CEP de entrega</h2><button type="button" class="button soft close" aria-label="Fechar">×</button></div><label>CEP brasileiro<input name="cep" required inputmode="numeric" maxlength="9" autocomplete="postal-code" pattern="[0-9]{5}-?[0-9]{3}" placeholder="00000-000"></label><p class="muted">O destino fica salvo neste navegador. Consulte a entrega na loja e registre a cotação quando disponível.</p><div class="actions"><button class="button">Usar este CEP</button></div></form></dialog>
+<dialog id="offerDialog"><form id="offerForm"><input type="hidden" name="cep"><div class="heading"><h2>Registrar oferta</h2><button type="button" class="button soft close" aria-label="Fechar">×</button></div><div class="fields"><label>Produto<select name="product"><option value="webcam">Webcam C922</option><option value="c920s">Webcam C920s</option><option value="headset">Headset Pro X 2</option></select></label><label>Loja ou vendedor<input name="store" maxlength="100" required></label></div><label>Link da oferta<input name="url" type="url" placeholder="https://…" required></label><div class="fields"><label>Preço à vista (R$)<input name="price" type="number" min=".01" step=".01" required></label><label>Preço anterior anunciado (R$)<input name="advertised" type="number" min=".01" step=".01"></label><label><span>Frete para <span id="formCep"></span> (R$)</span><input name="shipping" type="number" min="0" step=".01" placeholder="0 se grátis"></label><label>Prazo de entrega<input name="delivery" maxlength="80" placeholder="Ex. 3 dias úteis"></label><label>Parcelamento<input name="installments" maxlength="80" placeholder="Ex. 10× de R$ 80"></label><label>Total no cartão sem frete (R$)<input name="card" type="number" min=".01" step=".01"></label></div><div class="actions"><button class="button">Salvar oferta</button></div></form></dialog>
+<dialog id="decisionDialog"><form id="decisionForm"><div class="heading"><h2>Registrar decisão</h2><button type="button" class="button soft close" aria-label="Fechar">×</button></div><input type="hidden" name="product"><p class="muted" id="decisionProduct"></p><label>Decisão<select name="choice"><option value="wait">Continuar esperando</option><option value="buy">Comprar agora</option></select></label><label>Motivo ou preço desejado<textarea rows="3" name="note" maxlength="500"></textarea></label><div class="actions"><button class="button">Salvar decisão</button></div></form></dialog>
+<div class="toast" id="toast" role="status"></div>
+<script>
+/* OFFER_RANKING */
+const builtInProducts={webcam:{name:'C922 Pro Stream',short:'C922',sku:'960-001087',detail:'Webcam Logitech',image:'https://media.pichau.com.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/9/6/960-001087016321122.jpg'},c920s:{name:'C920s Pro HD',short:'C920s',sku:'960-001257',detail:'Webcam Logitech • Tampa de privacidade',image:'https://media.pichau.com.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/9/6/960-001257.jpg'},headset:{name:'G Pro X 2 Lightspeed',short:'Headset',sku:'981-001262',detail:'Headset Logitech G • Preto',image:'https://a-static.mlcdn.com.br/420x420/headset-gamer-sem-fio-logitech-g-pro-x-2-lightspeed-driver-50mm-bluetooth-usb-e-3-5mm-para-pc-playstation-e-switch-preto-981-001262/kabum/495541/4d7a6b0df6b05b9605fe4c4d45883b67.jpeg'}};
+let products={...builtInProducts};
+const defaultCep='';
+let cep=defaultCep,cepStorageKey;
+const $=id=>document.getElementById(id);
+const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money=value=>value==null?'—':Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(value);
+const day=value=>new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',year:'numeric'}).format(new Date(value.length===10?value+'T12:00:00Z':value));
+const sao=value=>value.length===10?value:new Intl.DateTimeFormat('en-CA',{timeZone:'America/Sao_Paulo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(value));
+const choice=value=>value==='buy'?'Comprar agora':'Continuar esperando';
+let state={offers:[],decisions:[],runs:[]},shown=5,timer;
+function notify(message){$('toast').textContent=message;clearTimeout(timer);timer=setTimeout(()=>$('toast').textContent='',6000);}
+const newer=(a,b)=>b.date.localeCompare(a.date);
+const shipping=o=>(o.cep||defaultCep)===cep?o.shipping:null;
+const total=o=>shipping(o)==null?null:effectivePrice(o)+shipping(o);
+function syncCep(){
+ $('editCep').textContent=cep?'CEP '+cep:'Definir CEP';
+ $('tableCep').textContent=cep||'CEP a definir';
+ $('formCep').textContent=cep||'CEP a definir';
+ $('offerForm').elements.cep.value=cep;
+}
+function syncProducts(){
+ products=Object.fromEntries((state.products||[]).map(p=>[p.id,{...p,short:p.name,detail:[p.brand,p.category,p.variant].filter(Boolean).join(' • '),...builtInProducts[p.id]}]));
+ $('add').disabled=!Object.keys(products).length;
+ for(const select of [$('chartProduct'),$('offerFilter'),$('activityFilter'),$('offerForm').elements.product]){
+  const selected=select.value;
+  const isFilter=select===$('offerFilter')||select===$('activityFilter');
+  select.replaceChildren(...(isFilter?[new Option('Todos os produtos','all')]:[]));
+  for(const p of state.products||[]){
+   const option=new Option(p.name,p.id);
+   select.add(option);
+  }
+  if([...select.options].some(o=>o.value===selected))select.value=selected;
+ }
+}
+function latestOffers(forDestination=false,rows=state.offers){
+ const keys=new Set();
+ return rows.filter(o=>!o.historical&&(!forDestination||(o.cep||defaultCep)===cep||o.shipping==null&&!o.delivery)).sort(newer).filter(o=>{
+  const key=sellerKey(o);
+  if(keys.has(key))return false;
+  keys.add(key);return true;
+ });
+}
+function couponCell(o){
+ const c=currentCoupon(o);
+ if(!c)return '<small>Cupom não confirmado</small>';
+ const label=c.code?'Cupom '+c.code:'Ative o cupom na oferta';
+ return '<strong>'+money(c.price)+'</strong><small><a href="'+esc(c.source)+'" target="_blank" rel="noopener">'+esc(label)+' ↗</a></small>'+(c.conditions?'<small>'+esc(c.conditions)+'</small>':'')+(!c.eligible?'<small>Sujeito à elegibilidade</small>':'');
+}
+function daily(rows){const bins=new Map();for(const o of rows){const key=sao(o.date);const existing=bins.get(key);if(!existing||o.price<existing.price)bins.set(key,o);}return [...bins.values()].sort((a,b)=>a.date.localeCompare(b.date));}
+function analysis(best,rows){
+ if(!best)return ['Sem preço confirmado','Aguardando uma oferta com preço verificável.',''];
+ const cutoff=new Date(new Date(sao(best.date)+'T12:00:00Z').getTime()-60*86400000).toISOString().slice(0,10);
+ const past=daily(rows.filter(o=>sao(o.date)<sao(best.date)&&sao(o.date)>=cutoff)).map(o=>o.price).sort((a,b)=>a-b);
+ if(past.length<3)return ['Histórico insuficiente','São necessários três dias anteriores de preços para avaliar o desconto anunciado.',''];
+ const middle=Math.floor(past.length/2);
+ const median=past.length%2?past[middle]:(past[middle-1]+past[middle])/2;
+ const change=100*(median-best.price)/median;
+ const label=change>=5?'Sinal de promoção real':best.advertised>best.price&&change<=0?'Desconto possivelmente ilusório':'Sem queda relevante';
+ return [label,(change>=0?change.toFixed(1).replace('.',',')+'% abaixo de ':Math.abs(change).toFixed(1).replace('.',',')+'% acima de ')+money(median)+' (mediana de '+past.length+' dias).',change>=5?'good':label.startsWith('Desconto')?'warn':''];
+}
+function renderFeatured(){
+ const featured=state.featured||[];
+ for(const [id,field,label] of [['featuredBrand','brand','Todas as marcas'],['featuredCategory','category','Todas as categorias']]){
+  const select=$(id),current=select.value;
+  const options=[...new Set(featured.map(item=>item[field]))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+  select.replaceChildren(new Option(label,''),...options.map(value=>new Option(value,value)));
+  if(options.includes(current))select.value=current;
+ }
+ $('featuredCards').innerHTML=featured.filter(o=>(!$('featuredBrand').value||o.brand===$('featuredBrand').value)&&(!$('featuredCategory').value||o.category===$('featuredCategory').value)).map(o=>'<article class="featured-card"><span class="mono">'+esc([o.brand,o.category,o.variant].filter(Boolean).join(' • '))+'</span><h3><a href="#destaque='+encodeURIComponent(o.id)+'">'+esc(o.name)+'</a></h3><strong>'+(o.price==null?'Sem preço confirmado':money(o.price))+'</strong>'+(o.coupon?.eligible?' <small>Com cupom</small>':'')+(o.date?'<small>'+esc(o.store)+' · '+day(o.date)+'</small>':'')+(o.savings>=5?'<span class="chip good">'+o.savings.toFixed(1).replace('.',',')+'% abaixo da mediana</span>':'')+(o.url?'<a href="'+esc(o.url)+'" target="_blank" rel="noopener">Ver fonte ↗</a>':'')+(!state.viewer?.owner&&!Object.values(products).some(p=>o.sku&&p.brand===o.brand&&p.sku===o.sku)?'<button type="button" class="button soft follow" data-product="'+esc(o.id)+'">Acompanhar no meu painel</button>':'')+'</article>').join('')||'<p class="muted">Nenhum produto em destaque no momento.</p>';
+}
+function trackingText(p){
+ if(!p.until)return 'Pesquisa sem prazo';
+ return (p.trackingEnded?'Pesquisa encerrada em ':'Pesquisa até ')+day(p.until);
+}
+function openDeadline(id){
+ const product=products[id];
+ if(!product)return;
+ const form=$('deadlineForm');
+ form.elements.product.value=id;form.elements.until.value=product.until||'';
+ $('deadlineProduct').textContent=product.name;
+ $('deadlineDialog').showModal();
+}
+function render(){
+ $('profileButton').textContent=state.profile?.name?'Perfil · '+state.profile.name:'Meu perfil';
+ renderFeatured();
+ const archived=state.archived||[];
+ $('archivedPanel').hidden=!archived.length;
+ $('archivedList').innerHTML=archived.map(p=>'<li><span>'+esc(p.name)+'</span><button class="button soft restore" data-product="'+esc(p.id)+'">Restaurar</button></li>').join('');
+ $('comparacao').innerHTML=Object.entries(products).map(([id,p])=>{
+  const rows=state.offers.filter(o=>o.product===id),min=[...rows].sort((a,b)=>a.price-b.price)[0];
+  const best=rankOffers(rows)[0];
+  const decision=state.decisions.filter(d=>d.product===id).sort(newer)[0];
+  const [label,reason,style]=analysis(best,rows);
+  const savedPhoto=(state.photos||[]).find(photo=>photo.id===id)?.image;
+  const recentPhoto=rows.filter(o=>o.image).sort(newer)[0]?.image;
+  const photo=savedPhoto||recentPhoto||p.image;
+  const photoHtml=(photo?'<img src="'+esc(photo)+'" alt="'+esc(p.name)+'" referrerpolicy="no-referrer">':'')+'<span class="product-placeholder" '+(photo?'hidden ':'')+'role="img" aria-label="Sem foto">⌁</span>';
+  const tools='<div class="card-tools"><button type="button" class="button soft set-deadline" data-product="'+esc(id)+'">'+(p.trackingEnded?'Prorrogar pesquisa':'Prazo de pesquisa')+'</button><button type="button" class="button soft edit-photo" data-product="'+esc(id)+'">'+(photo?'Trocar foto':'Adicionar foto')+'</button><button type="button" class="button remove archive" data-product="'+esc(id)+'">Remover do radar</button></div>';
+  return '<article class="card">'+tools+'<div class="product product-entry" data-detail="'+esc(id)+'">'+photoHtml+'<div><div class="mono">'+esc(p.sku||'Identificação pendente')+'</div><h2><a href="#produto='+encodeURIComponent(id)+'">'+esc(p.name)+'</a></h2><a class="detail-link" href="#produto='+encodeURIComponent(id)+'">Ver gráfico e lojas →</a><p class="muted">'+esc(p.detail)+'</p><p class="muted"><small>'+trackingText(p)+'</small></p>'+(!p.sku?'<button type="button" class="button soft identify" data-product="'+esc(id)+'">Informar código</button>':'')+(p.link?'<a href="'+esc(p.link)+'" target="_blank" rel="noopener">Ver referência ↗</a>':'')+'</div></div><div class="metrics"><div class="metric"><small>Melhor preço da última consulta</small><strong>'+money(effectivePrice(best))+'</strong><small>'+(best?esc(best.store)+' · '+day(best.date)+(currentCoupon(best)?.eligible?' · com cupom':''):'Sem leitura')+'</small></div><div class="metric"><small>Menor preço encontrado</small><strong>'+money(min?.price)+'</strong><small>'+(min?esc(min.store)+' · '+day(min.date):'Sem histórico')+'</small></div></div><p class="analysis"><span class="chip '+style+'">'+label+'</span> '+reason+'</p><div class="foot"><small>'+(decision?'Decisão · '+choice(decision.choice):'Decisão em aberto')+'</small><button class="button soft decision" data-product="'+id+'">'+(decision?'Alterar decisão':'Registrar decisão')+'</button>'+(state.viewer?.owner?'<button type="button" class="button soft feature" data-product="'+esc(id)+'" aria-pressed="'+String(state.featured.some(item=>item.id===id))+'">'+(state.featured.some(item=>item.id===id)?'Remover destaque':'Destacar oferta')+'</button>':'')+'</div></article>';
+ }).join('')||'<section class="panel"><h2>Seu painel está vazio</h2><p class="muted">Adicione um produto ou escolha um modelo em Melhores ofertas.</p></section>';
+ $('offerRows').innerHTML=latestOffers(true).filter(o=>$('offerFilter').value==='all'||o.product===$('offerFilter').value).sort((a,b)=>(total(a)??Infinity)-(total(b)??Infinity)||a.price-b.price).map(o=>'<tr><td><a target="_blank" rel="noopener" href="'+esc(o.url)+'">'+esc(o.store)+' ↗</a><small>'+day(o.date)+(o.seller?' · '+esc(o.seller):'')+'</small></td><td>'+esc(products[o.product]?.short||o.product)+'</td><td>'+money(o.price)+'</td><td>'+couponCell(o)+'</td><td>'+(shipping(o)==null?'A confirmar':shipping(o)===0?'Grátis':money(shipping(o)))+'</td><td><strong>'+(total(o)==null?'A confirmar':money(total(o)))+'</strong></td><td>'+esc(((o.cep||defaultCep)===cep&&o.delivery)||'A confirmar')+'</td><td>'+esc(o.installments||'A confirmar')+(o.card==null?'':'<small>Total sem frete · '+money(o.card)+'</small>')+'</td></tr>').join('')||'<tr><td colspan="8">Ainda não há ofertas registradas.</td></tr>';
+ const all=[...state.offers.map(o=>({...o,type:'offer'})),...state.decisions.map(o=>({...o,type:'decision'})),...state.runs.map(o=>({...o,type:'run'}))].filter(o=>$('activityFilter').value==='all'||o.product===$('activityFilter').value||o.type==='run').sort(newer);
+ $('activity').innerHTML=all.slice(0,shown).map(o=>'<li><span><strong>'+(o.type==='offer'?'<a href="'+esc(o.url)+'" target="_blank" rel="noopener">'+esc(products[o.product]?.short||o.product)+' · '+money(o.price)+' ↗</a>':o.type==='decision'?esc(products[o.product]?.short||o.product)+' · '+choice(o.choice):'Consulta de preços')+'</strong><small>'+esc(o.type==='offer'?o.store+(o.historical?' · registro histórico':''):o.note||'Decisão registrada')+'</small></span><time>'+day(o.date)+'</time></li>').join('')||'<li class="empty">Nenhuma atualização registrada.</li>';
+ $('more').hidden=all.length<=shown;
+ const last=state.runs.slice().sort(newer)[0];
+ $('status').textContent=last?'Última consulta registrada em '+day(last.date)+'.':'Preços exibidos com a data e a fonte de cada registro.';
+ draw();
+ renderDetail();
+}
+function draw(){
+ const rows=daily(state.offers.filter(o=>o.product===$('chartProduct').value));
+ const chart=$('chart'),w=chart.clientWidth,h=chart.clientHeight,dpr=window.devicePixelRatio||1;
+ if(!w)return;
+ chart.width=w*dpr;chart.height=h*dpr;const ctx=chart.getContext('2d');ctx.scale(dpr,dpr);
+ $('chartNote').textContent=rows.length?rows.length+' '+(rows.length===1?'dia registrado':'dias registrados')+' · menor valor disponível por dia':'Histórico em formação';
+ chart.setAttribute('aria-label',rows.map(o=>day(o.date)+': '+money(o.price)).join('; ')||'Histórico em formação');
+ if(!rows.length)return;
+ const prices=rows.map(o=>o.price),lo=Math.min(...prices),hi=Math.max(...prices),padding=Math.max(10,(hi-lo)*.15),min=lo-padding,max=hi+padding;
+ const times=rows.map(o=>new Date(sao(o.date)+'T12:00:00Z').getTime()),start=times[0],end=times.at(-1);
+ const left=76,right=w-14,top=12,bottom=h-25, y=p=>bottom-(p-min)/(max-min)*(bottom-top);
+ const x=i=>end===start?(left+right)/2:left+(times[i]-start)/(end-start)*(right-left);
+ ctx.font='11px Geist, Arial';ctx.textAlign='right';
+ for(let i=0;i<4;i++){const price=min+(max-min)*i/3;ctx.fillStyle='#625e74';ctx.fillText(money(price),left-8,y(price)+4);ctx.strokeStyle='#edeaf2';ctx.beginPath();ctx.moveTo(left,y(price));ctx.lineTo(right,y(price));ctx.stroke();}
+ ctx.strokeStyle='#783be4';ctx.lineWidth=2.5;ctx.beginPath();rows.forEach((o,i)=>i?ctx.lineTo(x(i),y(o.price)):ctx.moveTo(x(i),y(o.price)));ctx.stroke();
+ ctx.fillStyle='#783be4';rows.forEach((o,i)=>{ctx.beginPath();ctx.arc(x(i),y(o.price),3.1,0,Math.PI*2);ctx.fill();});
+ ctx.fillStyle='#625e74';ctx.textAlign='center';const marks=rows.length>2?[0,Math.floor(rows.length/2),rows.length-1]:rows.map((_,i)=>i);
+ let previous=-100;marks.forEach(i=>{const px=Math.min(w-19,Math.max(20,x(i)));if(px-previous<44)return;ctx.fillText(day(rows[i].date).slice(0,5),px,h-6);previous=px;});
+}
+async function load(){const r=await fetch('/api/radar');if(!r.ok)throw new Error('Falha ao carregar o painel.');state=await r.json();
+ const key='radar-cep:'+state.viewer.id;
+ if(cepStorageKey!==key){
+  cepStorageKey=key;
+  cep=state.profile?.cep||localStorage.getItem(key)||(state.viewer.owner?localStorage.getItem('radar-cep'):null)||defaultCep;
+  syncCep();
+ }
+ syncProducts();render();applyRoute();}
+syncCep();
+$('editCep').onclick=()=>{
+ $('cepForm').elements.cep.value=cep;
+ $('cepDialog').showModal();
+};
+$('cepForm').onsubmit=e=>{
+ e.preventDefault();
+ const code=e.currentTarget.elements.cep.value.replace('-','');
+ if(!/^[0-9]{8}$/.test(code)||code==='00000000'){notify('Informe um CEP válido com 8 dígitos.');return;}
+ cep=code.slice(0,5)+'-'+code.slice(5);
+ if(cepStorageKey)localStorage.setItem(cepStorageKey,cep);
+ syncCep();render();$('cepDialog').close();
+};
+$('addProduct').onclick=()=>{ $('productForm').reset();$('productForm').elements.link.required=true;$('productAdvanced').open=false;$('productDialog').showModal(); };
+$('add').onclick=()=>$('offerDialog').showModal();
+function productRoute(){
+ const match=location.hash.match(/^#(produto|destaque)=(.+)$/);
+ if(!match)return null;
+ try{return {featured:match[1]==='destaque',id:decodeURIComponent(match[2])};}catch{return null;}
+}
+function detailData(route){
+ if(!route)return null;
+ if(route.featured){
+  const product=(state.featured||[]).find(p=>p.id===route.id);
+  return product?{product,rows:product.priceHistory||[]}:null;
+ }
+ return products[route.id]?{product:products[route.id],rows:state.offers.filter(o=>o.product===route.id)}:null;
+}
+function priceRanges(rows){
+ const days=new Map();
+ for(const offer of rows){
+  const date=sao(offer.date),range=days.get(date);
+  if(range){range.low=Math.min(range.low,offer.price);range.high=Math.max(range.high,offer.price);}
+  else days.set(date,{date,low:offer.price,high:offer.price});
+ }
+ return [...days.values()].sort((a,b)=>a.date.localeCompare(b.date));
+}
+const storeColors=['#6435c7','#a34613','#087e64','#0074bb','#a62b70','#68601c','#8f3f1c','#3456ac'];
+function seriesByStore(rows){
+ const stores=new Map();
+ for(const row of rows){
+  const label=row.store.trim().replace(/^amazon(?: brasil)?$/i,'Amazon Brasil').replace(/^kabum!?$/i,'KaBuM!');
+  const key=label.toLowerCase(),date=sao(row.date);
+  if(!stores.has(key))stores.set(key,{label,days:new Map()});
+  const target=stores.get(key).days;
+  if(!target.has(date)||row.price<target.get(date).price)target.set(date,{...row,date});
+ }
+ return [...stores.values()].sort((a,b)=>a.label.localeCompare(b.label,'pt-BR')).map(({label,days},i)=>({label,color:storeColors[i%storeColors.length],points:[...days.values()].sort((a,b)=>a.date.localeCompare(b.date))}));
+}
+function directOfferUrl(o){
+ if(o.buyUrl)return o.buyUrl;
+ try{
+  const url=new URL(o.url),host=url.hostname.replace(/^www\./,'');
+  const paths={'amazon.com.br':/\/(dp|gp\/product)\//,'kabum.com.br':/^\/produto\//,'pichau.com.br':/^\/[^/]+\/?$/,'magazineluiza.com.br':/\/p\//,'terabyteshop.com.br':/^\/produto\//,'miranda.com.br':/\.html$/,'mercadolivre.com.br':/\/p\//,'produto.mercadolivre.com.br':/^\/MLB-/i};
+  return paths[host]?.test(url.pathname)?o.url:'';
+ }catch{return '';}
+}
+function offerLink(o){
+ const direct=directOfferUrl(o);
+ if(direct)return '<a class="button soft" href="'+esc(direct)+'" target="_blank" rel="noopener">'+(o.historical?'Ver produto na loja ↗':'Abrir oferta na loja ↗')+'</a>';
+ return o.url?'<a href="'+esc(o.url)+'" target="_blank" rel="noopener">Ver fonte do preço ↗</a>':'—';
+}
+function availabilityText(o){
+ if(o.historical)return 'Histórico';
+ if(o.availability==='out-of-stock')return 'Sem estoque no registro';
+ if(o.availability==='in-stock')return sao(o.date)===offerDate(new Date().toISOString())?'Em estoque na conferência':'Estoque visto em '+day(o.date);
+ return 'Estoque a confirmar';
+}
+function renderDetail(){
+ const route=productRoute(),detail=detailData(route);
+ if(!detail)return;
+ const {product,rows}=detail,ranges=priceRanges(rows),series=seriesByStore(rows),ranking=rankOffers(rows),best=ranking[0];
+ $('detailName').textContent=product.name;
+ $('detailMeta').textContent=[product.brand,product.category,product.variant,product.sku].filter(Boolean).join(' • ');
+ $('detailDeadline').hidden=route.featured;
+ $('detailDeadline').textContent=product.trackingEnded?'Prorrogar pesquisa':'Prazo de pesquisa';
+ if(!route.featured)$('detailMeta').textContent+=' • '+trackingText(product);
+ $('detailDate').textContent=best?'OFERTAS DE '+day(best.date):'SEM OFERTAS REGISTRADAS';
+ const metric=(label,value,note='',best=false)=>'<div class="metric'+(best?' best':'')+'"><small>'+label+'</small><strong>'+money(value)+'</strong><small>'+esc(note)+'</small></div>';
+ const lowest=ranges.length?Math.min(...ranges.map(r=>r.low)):null;
+ const highest=ranges.length?Math.max(...ranges.map(r=>r.high)):null;
+ $('detailMetrics').innerHTML=metric('Melhor oferta registrada no dia',effectivePrice(best),best?(best.store+(currentCoupon(best)?.eligible?' · com cupom':'')):'',true)+metric('Menor do histórico',lowest)+metric('Maior do histórico',highest);
+ $('detailBuy').innerHTML=best&&directOfferUrl(best)?offerLink(best):'';
+ $('detailRankNote').textContent=best?'Ofertas de '+day(best.date)+' primeiro, do menor ao maior preço, considerando cupons de aplicação geral. Registros mais antigos aparecem abaixo.':'A tabela será preenchida quando o Radar registrar ofertas para este produto.';
+ $('detailStoreRows').innerHTML=ranking.map((o,i)=>{
+  const old=sao(o.date)!==sao(best.date),freight=shipping(o),sum=total(o);
+  return '<tr'+(i===0?' class="winner-row"':'')+'><td><a href="'+esc(o.url)+'" target="_blank" rel="noopener">'+esc(o.store)+' ↗</a>'+(o.seller?'<small>'+esc(o.seller)+'</small>':'')+(i===0?' <span class="chip good">Melhor preço</span>':'')+'</td><td>'+money(o.price)+'</td><td>'+couponCell(o)+'</td><td>'+(freight==null?'A confirmar':freight===0?'Grátis':money(freight))+'</td><td>'+(sum==null?'A confirmar':money(sum))+'</td><td>'+availabilityText(o)+'<small>'+day(o.date)+(old?' · Anterior':'')+'</small></td><td>'+offerLink(o)+'</td></tr>';
+ }).join('')||'<tr><td colspan="7">Nenhuma loja com oferta registrada.</td></tr>';
+ $('detailKeys').hidden=!ranges.length;$('detailHistory').hidden=!ranges.length;
+ $('detailChart').hidden=!ranges.length;
+ $('detailChartNote').textContent=ranges.length?'':'Ainda não há histórico para este produto.';
+ $('detailKeys').innerHTML=series.map(s=>'<span><b style="color:'+s.color+'">●</b> '+esc(s.label)+'</span>').join('');
+ $('detailHistoryRows').innerHTML=series.flatMap(s=>s.points.map(o=>({...o,label:s.label}))).sort((a,b)=>b.date.localeCompare(a.date)||a.price-b.price).map(o=>'<tr><td>'+day(o.date)+'</td><td>'+esc(o.label)+'</td><td>'+money(o.price)+'</td><td>'+offerLink(o)+'</td></tr>').join('');
+ if(ranges.length)drawDetail(ranges,lowest,highest,series);
+}
+function drawDetail(ranges,lowest,highest,series){
+ const canvas=$('detailChart'),w=canvas.clientWidth,h=canvas.clientHeight,dpr=window.devicePixelRatio||1;
+ if(!w)return;
+ canvas.width=w*dpr;canvas.height=h*dpr;
+ const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);ctx.font='11px Geist, Arial';
+ const left=85,right=w-15,top=18,bottom=h-27;
+ const start=Date.parse(ranges[0].date),end=Date.parse(ranges.at(-1).date);
+ const x=date=>start===end?(left+right)/2:left+(Date.parse(date)-start)/(end-start)*(right-left);
+ const y=value=>highest===lowest?(top+bottom)/2:bottom-(value-lowest)/(highest-lowest)*(bottom-top);
+ ctx.textAlign='right';ctx.fillStyle='#625e74';
+ const ticks=highest===lowest?[lowest]:[lowest,(highest+lowest)/2,highest];
+ for(const price of ticks){
+  ctx.fillText(money(price),left-8,y(price)+4);
+  ctx.strokeStyle='#e5e2ee';ctx.beginPath();ctx.moveTo(left,y(price));ctx.lineTo(right,y(price));ctx.stroke();
+ }
+ for(const {points,color} of series){
+  ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=2;
+  ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(x(p.date),y(p.price)):ctx.moveTo(x(p.date),y(p.price)));ctx.stroke();
+  for(const p of points){ctx.beginPath();ctx.arc(x(p.date),y(p.price),3.5,0,Math.PI*2);ctx.fill();}
+ }
+ ctx.fillStyle='#625e74';ctx.textAlign='center';
+ const marks=ranges.length<=2?ranges:[ranges[0],ranges[Math.floor(ranges.length/2)],ranges.at(-1)];
+ let last=-100;for(const r of marks){const pos=x(r.date);if(pos-last>=42){ctx.fillText(day(r.date).slice(0,5),pos,h-7);last=pos;}}
+ canvas.setAttribute('aria-label','Histórico diário de '+money(lowest)+' até '+money(highest)+'. Consulte a tabela abaixo para ver os valores por data.');
+}
+function applyRoute(focus=false){
+ const route=productRoute(),available=!!detailData(route);
+ if(!available){$('productView').hidden=true;return;}
+ $('personalView').hidden=true;$('featuredView').hidden=true;$('productView').hidden=false;
+ $('personalTab').setAttribute('aria-pressed',String(!route.featured));
+ $('featuredTab').setAttribute('aria-pressed',String(route.featured));
+ renderDetail();
+ if(focus){$('productView').scrollIntoView();$('detailName').focus({preventScroll:true});}
+}
+window.addEventListener('hashchange',()=>{
+ if(productRoute())applyRoute(true);
+ else showFeatured(location.hash==='#melhores-ofertas',false);
+});
+$('detailDeadline').onclick=()=>openDeadline(productRoute()?.id);
+$('profileButton').onclick=()=>{
+ const form=$('profileForm');
+ form.elements.name.value=state.profile?.name||'';
+ form.elements.cep.value=cep;
+ $('profileDialog').showModal();
+};
+$('detailBack').onclick=()=>showFeatured(!!productRoute()?.featured);
+function showFeatured(show,changeHash=true){
+ if(changeHash&&productRoute())history.replaceState(null,'',show?'#melhores-ofertas':location.pathname+location.search);
+ $('productView').hidden=true;
+ $('featuredView').hidden=!show;$('personalView').hidden=show;
+ $('featuredTab').setAttribute('aria-pressed',String(show));$('personalTab').setAttribute('aria-pressed',String(!show));
+ if(!show)draw();
+}
+$('personalTab').onclick=()=>showFeatured(false);
+$('featuredTab').onclick=()=>showFeatured(true);
+$('featuredBrand').onchange=renderFeatured;$('featuredCategory').onchange=renderFeatured;
+$('featuredCards').onclick=e=>{
+ const b=e.target.closest('.follow');if(!b)return;
+ const p=state.featured.find(o=>o.id===b.dataset.product);
+ const form=$('productForm');
+ form.reset();$('productAdvanced').open=false;
+ form.elements.name.value=p.name;form.elements.brand.value=p.brand;form.elements.category.value=p.category;form.elements.variant.value=p.variant;form.elements.sku.value=p.sku;form.elements.link.value=p.link||p.url||'';form.elements.link.required=!p.sku;
+ $('productDialog').showModal();
+};
+async function setArchived(button,archived){
+ button.disabled=true;
+ try{
+  const r=await fetch('/api/products/archive',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({product:button.dataset.product,archived})});
+  if(!r.ok)throw new Error((await r.json()).error);
+  await load();
+  notify(archived?'Removido do radar. Você pode restaurá-lo em Removidos do radar.':'Produto restaurado.');
+ }catch(error){notify(error.message);button.disabled=false;}
+}
+$('archivedList').onclick=e=>{const b=e.target.closest('.restore');if(b)void setArchived(b,false);};
+$('comparacao').addEventListener('error',e=>{
+ if(e.target.tagName==='IMG'&&e.target.nextElementSibling){e.target.hidden=true;e.target.nextElementSibling.hidden=false;}
+},true);
+$('comparacao').onclick=async e=>{
+ const entry=e.target.closest('.product-entry');
+ if(entry&&!e.target.closest('a,button')){location.hash='produto='+encodeURIComponent(entry.dataset.detail);return;}
+ const limit=e.target.closest('.set-deadline');
+ if(limit){openDeadline(limit.dataset.product);return;}
+ const photo=e.target.closest('.edit-photo');
+ if(photo){
+  const form=$('photoForm');
+  form.elements.product.value=photo.dataset.product;
+  form.elements.image.value=(state.photos||[]).find(p=>p.id===photo.dataset.product)?.image||'';
+  $('photoDialog').showModal();
+  return;
+ }
+ const archive=e.target.closest('.archive');
+ if(archive){void setArchived(archive,true);return;}
+ const identify=e.target.closest('.identify');
+ if(identify){$('identifyForm').elements.product.value=identify.dataset.product;$('identifyDialog').showModal();return;}
+ const feature=e.target.closest('.feature');
+ if(feature){
+  feature.disabled=true;
+  try{
+   const response=await fetch('/api/featured',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({product:feature.dataset.product,enabled:feature.getAttribute('aria-pressed')!=='true'})});
+   if(!response.ok)throw new Error((await response.json()).error);
+   await load();
+  }catch(error){notify(error.message);feature.disabled=false;}
+  return;
+ }
+ const b=e.target.closest('.decision');if(!b)return;const id=b.dataset.product;const d=state.decisions.filter(o=>o.product===id).sort(newer)[0];const form=$('decisionForm');form.elements.product.value=id;form.elements.choice.value=d?.choice||'wait';form.elements.note.value=d?.note||'';$('decisionProduct').textContent=products[id].name;$('decisionDialog').showModal();};
+document.querySelectorAll('.close').forEach(b=>b.onclick=()=>b.closest('dialog').close());
+for(const [id,path] of [['offerForm','offers'],['decisionForm','decisions'],['productForm','products'],['identifyForm','products/identify'],['photoForm','products/photo'],['deadlineForm','products/deadline'],['profileForm','profile']]){
+ const form=$(id);form.onsubmit=async e=>{e.preventDefault();const submit=form.querySelector('.actions button'),label=submit.textContent;submit.disabled=true;if(path==='products')submit.textContent='Consultando a loja…';
+ try{const data=Object.fromEntries(new FormData(form));data.id=form.dataset.pending||crypto.randomUUID();form.dataset.pending=data.id;
+ const r=await fetch('/api/'+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw new Error((await r.json()).error||'Falha ao salvar.');
+ const result=await r.json();
+ if(path==='profile')cepStorageKey=undefined;
+ delete form.dataset.pending;form.reset();syncCep();form.closest('dialog').close();notify(path==='products'?(result.sku?(result.initialPrice?'Produto identificado com preço.':'Produto identificado. A pesquisa diária buscará ofertas.'):'Produto salvo. O Radar ainda precisa confirmar o modelo.'):'Registro salvo.');await load();}catch(error){notify(error.message);}finally{submit.disabled=false;submit.textContent=label;}
+ };
+}
+$('chartProduct').onchange=draw;$('offerFilter').onchange=render;$('activityFilter').onchange=()=>{shown=5;render();};$('more').onclick=()=>{shown+=10;render();};
+new ResizeObserver(draw).observe($('chart'));
+new ResizeObserver(()=>{if(!$('productView').hidden)renderDetail();}).observe($('detailChart'));
+load().catch(e=>{$('status').textContent=e.message;notify(e.message);});
+window.addEventListener('focus',()=>load().catch(()=>{}));
+</script></body></html>
