@@ -1,10 +1,10 @@
 # Radar Gear
 
-Código-fonte exportável do Radar de Periféricos. O painel acompanha produtos por modelo, compara lojas e vendedores, registra disponibilidade, cupons e condições, exibe gráficos e guarda preferências e decisões por conta.
+Código-fonte exportável do Radar de Periféricos. O painel acompanha produtos por modelo, compara lojas e vendedores e registra disponibilidade, cupons e condições de compra. Também mostra gráficos e guarda as preferências e decisões de cada conta.
 
 ## Publicar o código no GitHub
 
-Extraia o ZIP. Com o GitHub Desktop, adicione a pasta como repositório local, faça o primeiro commit e selecione **Publish repository** com **Keep this code private** marcado. Alternativamente, execute os comandos dentro da pasta extraída com o GitHub CLI já autenticado.
+Extraia o ZIP. No GitHub Desktop, adicione a pasta como repositório local, faça o primeiro commit e clique em **Publish repository** com a opção **Keep this code private** marcada. Se preferir o terminal, rode os comandos abaixo dentro da pasta extraída, com o GitHub CLI já autenticado.
 
 ```sh
 git init -b main
@@ -14,19 +14,19 @@ git commit -m "Exportação inicial do Radar Gear"
 gh repo create radar-gear --private --source=. --push
 ```
 
-Confira o estado antes do commit. A cópia começa com um histórico Git novo. A configuração local, os segredos e os dados reais ficam fora do repositório. O GitHub armazena o código. Para executar o Worker e o banco de dados, siga a configuração de hospedagem abaixo.
+Use o `git status --short` para conferir o que vai entrar antes do commit. A cópia começa com um histórico Git novo, e a configuração local, os segredos e os dados reais ficam fora do repositório. O GitHub guarda só o código. Para rodar o Worker e o banco de dados, siga a configuração de hospedagem abaixo.
 
 [GitHub Desktop](https://docs.github.com/en/desktop/adding-and-cloning-repositories/adding-an-existing-project-to-github-using-github-desktop) · [GitHub CLI e Git](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
 
 ## Compilar e configurar a hospedagem
 
-Requer Node.js 22 ou mais recente. O código do Radar usa APIs nativas do Worker e do navegador. Os scripts de desenvolvimento e deploy chamam Wrangler 4.
+Precisa do Node.js 22 ou mais recente. O código usa APIs nativas do Worker e do navegador, e os scripts de desenvolvimento e deploy chamam o Wrangler 4.
 
-1. Execute `npm run check` para compilar o Worker em `dist/server/index.js`.
-2. Para hospedar em Cloudflare Workers, copie `wrangler.example.toml` para `wrangler.toml`. Crie um D1 dedicado, informe seu ID e mantenha o binding com o nome `DB`. Aponte o Worker para um hostname configurado em sua conta e protegido pelo Cloudflare Access. O modelo mantém os endereços públicos de desenvolvimento e preview desativados.
-3. Crie uma aplicação no Cloudflare Access e defina a política de acesso dos usuários. Preencha o domínio da equipe e o identificador de audiência em `wrangler.toml`. O backend verifica a assinatura e as informações do JWT antes de aceitar a identidade. Use o modo `cloudflare-access` fora do ChatGPT.
-4. Configure `RADAR_OWNER_EMAIL` e, se o serviço de pesquisas for externo, `RADAR_JOB_TOKEN` como segredos do Worker pelo painel ou por `npx wrangler@4 secret put NOME_DA_VARIAVEL`. Gere um valor aleatório independente para cada ambiente. Para desenvolvimento, use `.dev.vars`, ignorado pelo Git, com valores próprios. O login requer uma credencial de teste válida ou uma implantação de homologação protegida.
-5. Aplique as migrações com `npx wrangler@4 d1 migrations apply radar-gear --remote`, usando o nome do banco que configurou, e publique com `npm run deploy` quando estiver pronto. Antes de conectar o domínio de produção, teste uma conta administradora, uma conta comum e requisições sem autenticação em homologação.
+1. Rode `npm run check` para compilar o Worker em `dist/server/index.js`.
+2. Para hospedar no Cloudflare Workers, copie `wrangler.example.toml` para `wrangler.toml`. Crie um D1 só para o projeto, coloque o ID dele no arquivo e mantenha o binding com o nome `DB`. Aponte o Worker para um hostname da sua conta protegido pelo Cloudflare Access. O modelo já vem com os endereços públicos de desenvolvimento e preview desativados.
+3. Crie uma aplicação no Cloudflare Access e defina a política de acesso dos usuários. Preencha o domínio da equipe e o identificador de audiência em `wrangler.toml`. O backend verifica a assinatura e os dados do JWT antes de aceitar a identidade. Fora do ChatGPT, use o modo `cloudflare-access`.
+4. Configure `RADAR_OWNER_EMAIL` como segredo do Worker, e também `RADAR_JOB_TOKEN` se o serviço de pesquisa for externo. Dá para fazer pelo painel ou com `npx wrangler@4 secret put NOME_DA_VARIAVEL`. Gere um valor aleatório diferente para cada ambiente. Em desenvolvimento, use um `.dev.vars` com valores próprios (o Git ignora esse arquivo). Para fazer login, você precisa de uma credencial de teste válida ou de uma implantação de homologação protegida.
+5. Aplique as migrações com `npx wrangler@4 d1 migrations apply radar-gear --remote`, trocando `radar-gear` pelo nome do banco que você configurou. Quando estiver pronto, publique com `npm run deploy`. Antes de ligar o domínio de produção, teste em homologação uma conta administradora, uma conta comum e requisições sem autenticação.
 
 [Cloudflare Access e validação do JWT](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/validating-json/) · [Segredos do Worker](https://developers.cloudflare.com/workers/configuration/secrets/) · [Migrações D1](https://developers.cloudflare.com/d1/reference/migrations/)
 
@@ -34,23 +34,23 @@ Requer Node.js 22 ou mais recente. O código do Radar usa APIs nativas do Worker
 
 | Área | Situação na exportação |
 | --- | --- |
-| Interface, backend, painel privado e destaques | Código integral do aplicativo. Alterações, perfis, decisões, busca de produto por link, gráficos, filtros e cupons continuam no código. |
-| Banco de dados e histórico | Migrações de esquema e amostra de observações públicas. O banco hospedado, o histórico real, os cadastros e as preferências precisam de migração separada. |
-| Login e contas | Adaptador de Cloudflare Access fornecido. Configure o provedor e as políticas de acesso. Os usuários recebem novos identificadores no provedor externo. |
-| Lojas e importação de links | Adaptador HTTP de varejistas compatíveis incluído. A leitura depende das páginas de cada loja, de seus metadados e das regras de acesso. Cobertura ampla de mercado depende do serviço de pesquisa. |
-| Monitoramento, estoque e cupons | APIs de leitura e gravação incluídas. A consulta ampla do Site original roda em uma automação externa ao código, que precisa ser substituída por um job de pesquisa. |
-| Alertas e agendamento | O aplicativo contém histórico das consultas e mudanças de preço. Alertas de conversa, frequência da pesquisa e regras de notificação pertencem ao serviço agendado. Configure o canal e a cadência, atualmente a cada duas horas no Radar original, no ambiente externo. |
+| Interface, backend, painel privado e destaques | Vão inteiros no código. Alterações, perfis, decisões, busca de produto por link, gráficos, filtros e cupons continuam no código. |
+| Banco de dados e histórico | O código traz as migrações de esquema e uma amostra de observações públicas. O banco hospedado, o histórico real, os cadastros e as preferências precisam ser migrados à parte. |
+| Login e contas | Tem um adaptador para o Cloudflare Access. Configure o provedor e as políticas de acesso. Os usuários recebem identificadores novos no provedor externo. |
+| Lojas e importação de links | Tem um adaptador HTTP para os varejistas compatíveis. A leitura depende das páginas, dos metadados e das regras de acesso de cada loja. Para cobrir o mercado todo, é preciso o serviço de pesquisa. |
+| Monitoramento, estoque e cupons | As APIs de leitura e gravação estão incluídas. A consulta ampla do Radar original roda numa automação fora do código, que precisa ser trocada por um job de pesquisa. |
+| Alertas e agendamento | O aplicativo guarda o histórico das consultas e das mudanças de preço. Alertas de conversa, frequência da pesquisa e regras de notificação ficam no serviço agendado. Configure o canal e a frequência no ambiente externo. No Radar original, a pesquisa roda a cada duas horas. |
 
 ### Migrar dados, se necessário
 
-O ZIP contém uma amostra pública para validar o comportamento do painel. O dump da produção fica fora do GitHub. Se você tiver acesso administrativo ao D1 original, exporte os dados em um canal privado e importe em um D1 de homologação primeiro. Se o banco estiver gerenciado pelo ChatGPT Sites e você tiver acesso apenas pelo MCP, verifique com o provedor a possibilidade de uma exportação integral. A leitura pelo MCP é limitada à conta e não serve como backup completo do D1.
+O ZIP traz uma amostra pública para testar o comportamento do painel. O dump da produção fica fora do GitHub. Se você tem acesso de administrador ao D1 original, exporte os dados por um canal privado e importe primeiro num D1 de homologação. Se o banco é gerenciado pelo ChatGPT Sites e você só acessa pelo MCP, pergunte ao provedor se dá para exportar tudo. A leitura pelo MCP fica limitada à conta e não substitui um backup completo do D1.
 
-Preserve chaves de produto ao migrar ofertas, histórico e destaques. Remapeie `account_records.account` para o identificador do mesmo titular no novo provedor, preservando o marcador de proprietário usado nos dados. Importe o estado das migrações ou as linhas de negócio conforme o método de migração escolhido para evitar duplicação. Valide quantidades e uma amostra de histórico e permissões antes de abrir a hospedagem externa aos usuários. [Comandos de exportação e importação D1](https://developers.cloudflare.com/d1/wrangler/commands/d1/)
+Ao migrar ofertas, histórico e destaques, mantenha as chaves de produto. Troque `account_records.account` pelo identificador do mesmo titular no novo provedor, sem perder o marcador de proprietário usado nos dados. Para não duplicar nada, importe o estado das migrações ou as linhas de negócio, conforme o método de migração que você escolher. Antes de abrir a hospedagem externa aos usuários, confira as quantidades e uma amostra do histórico e das permissões. [Comandos de exportação e importação D1](https://developers.cloudflare.com/d1/wrangler/commands/d1/)
 
 ### Reconectar pesquisa e alertas
 
-Mantenha `/mcp` protegido. Configure uma política de acesso de serviço própria para esse caminho e um token de serviço do Cloudflare Access. O job envia os cabeçalhos de serviço do Access e `Authorization: Bearer <RADAR_JOB_TOKEN>` ao Worker. O token do job, quando configurado, autentica apenas o protocolo MCP. A leitura técnica do job exclui o perfil e as decisões do usuário. Use o host HTTPS protegido e armazene as credenciais no ambiente do agendador.
+Mantenha `/mcp` protegido. Crie uma política de acesso de serviço só para esse caminho e um token de serviço do Cloudflare Access. O job manda ao Worker os cabeçalhos de serviço do Access e `Authorization: Bearer <RADAR_JOB_TOKEN>`. Quando configurado, o token do job autentica só o protocolo MCP, e a leitura técnica do job não inclui o perfil nem as decisões do usuário. Use o host HTTPS protegido e guarde as credenciais no ambiente do agendador.
 
-O job precisa ler os SKUs ativos por `ler_radar`, pesquisar e validar URLs diretas, modelo, estoque e preços, e gravar com `registrar_consulta`. Use `identificar_produto` quando houver evidência suficiente. Grave observações anteriores com a data original. Diferencie cupom geral de benefício condicionado a cartão, assinatura ou conta. Registre falhas de cobertura e envie alertas apenas pelas condições que você configurar. O importador no cadastro consulta o link fornecido. Uma busca imediata em múltiplas lojas após cada cadastro também requer um serviço de pesquisa integrado.
+O job precisa ler os SKUs ativos com `ler_radar` e gravar o resultado com `registrar_consulta`. No meio disso, ele pesquisa e valida as URLs diretas, o modelo, o estoque e os preços. Quando houver evidência suficiente, use `identificar_produto`. Observações antigas devem ser gravadas com a data original. Separe cupom geral de benefício que depende de cartão, assinatura ou conta. Registre as falhas de cobertura e só mande alertas nas condições que você configurar. O importador do cadastro consulta o link informado. Para buscar em várias lojas logo depois de cada cadastro, também é preciso integrar um serviço de pesquisa.
 
-O modo `chatgpt-sites` é reservado a um ambiente em que a infraestrutura do Sites autentica e controla os cabeçalhos de identidade. Em uma origem externa, use `cloudflare-access`.
+O modo `chatgpt-sites` é só para um ambiente em que a infraestrutura do Sites cuida da autenticação e dos cabeçalhos de identidade. Numa origem externa, use `cloudflare-access`.
