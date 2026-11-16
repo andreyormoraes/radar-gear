@@ -59,6 +59,8 @@ async function account(request, env) {
  const identity = env.RADAR_IDENTITY_MODE === 'cloudflare-access' ? await accessIdentity(request,env) :
   env.RADAR_IDENTITY_MODE === 'chatgpt-sites' ? {id:request.headers.get('oai-authenticated-user-id'),email:request.headers.get('oai-authenticated-user-email')} : null;
  if (!identity?.id) return null;
- const ownerEmail = env.RADAR_OWNER_EMAIL?.trim().toLowerCase();
- return {id:identity.id, owner:!!ownerEmail && identity.email?.trim().toLowerCase() === ownerEmail};
+ // RADAR_OWNER_EMAIL aceita vários e-mails separados por vírgula
+ const owners = (env.RADAR_OWNER_EMAIL ?? '').split(',').map(e => e.trim().toLowerCase()).filter(Boolean);
+ const email = identity.email?.trim().toLowerCase();
+ return {id:identity.id, owner:!!email && owners.includes(email)};
 }
