@@ -25,7 +25,7 @@ async function accessIdentity(request, env) {
       (claims.nbf !== undefined && (!Number.isFinite(claims.nbf) || claims.nbf > now)) ||
       typeof claims.sub !== 'string' || !claims.sub || typeof claims.email !== 'string') return null;
   if (keyCache?.issuer !== issuer || keyCache.expires <= now || !keyCache.keys.some(key => key.kid === header.kid)) {
-   const response = await fetch(issuer + '/cdn-cgi/access/certs', { redirect: 'error' });
+   const response = await fetch(issuer + '/cdn-cgi/access/certs', { redirect: 'manual' });
    if (!response.ok) return null;
    const {keys} = await response.json();
    if (!Array.isArray(keys)) return null;
